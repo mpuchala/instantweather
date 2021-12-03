@@ -7,4 +7,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Instant Weather"
-include ':app'
+include (
+    ":app",
+    ":depconstraints"
+)
