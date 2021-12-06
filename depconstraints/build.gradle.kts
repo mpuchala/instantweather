@@ -30,6 +30,7 @@ dependencies {
 
         api("${Libs.ANDROIDX_LIFECYCLE_RUNTIME_KTX}:$androidxLifecycle")
 
+        api("${Libs.KOTLIN_STDLIB}:${Versions.KOTLIN}")
 
         api("${Libs.JUNIT}:$junit")
         api("${Libs.ANDROIDX_EXT_JUNIT}:$androidxJunitExt")

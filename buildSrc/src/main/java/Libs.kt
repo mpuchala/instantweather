@@ -11,6 +11,7 @@ object Libs {
 
     const val ANDROIDX_LIFECYCLE_RUNTIME_KTX = "androidx.lifecycle:lifecycle-runtime-ktx"
 
+    const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
     //Test
     const val JUNIT = "junit:junit"
     const val ANDROIDX_EXT_JUNIT = "androidx.test.ext:junit"
