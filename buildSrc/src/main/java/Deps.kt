@@ -1,12 +1,12 @@
 object Versions {
     const val GRADLE = "7.0.3"
-    const val KOTLIN = "1.5.21"
+    const val KOTLIN = "1.5.31"
 
     const val ANDROD_MATERIAL = "1.4.0"
 
     const val ANDROIDX_ACTIVITY_COMPOSE = "1.4.0"
     const val ANDROIDX_APPCOMPAT = "1.4.0"
-    const val ANDROIDX_COMPOSE = "1.0.1"
+    const val ANDROIDX_COMPOSE = "1.0.5"
     const val ANDROIDX_CORE = "1.7.0"
     const val ANDROIDX_LIFECYCLE = "2.4.0"
 
@@ -27,6 +27,8 @@ object Libs {
     const val ANDROIDX_COMPOSE_UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.ANDROIDX_COMPOSE}"
 
     const val ANDROIDX_LIFECYCLE_RUNTIME_KTX = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ANDROIDX_LIFECYCLE}"
+
+    const val KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.KOTLIN}"
 
     //Test
     const val JUNIT = "junit:junit:${Versions.JUNIT}"
