@@ -1,4 +1,4 @@
-plugins {
+/*plugins {
     id("java-platform")
     id("maven-publish")
 }
@@ -46,4 +46,4 @@ publishing {
             from(components["javaPlatform"])
         }
     }
-}
+}*/
