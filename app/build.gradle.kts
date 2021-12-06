@@ -54,9 +54,9 @@ android {
 }
 
 dependencies {
-    api(platform(project(":depconstraints")))
+    /*api(platform(project(":depconstraints")))
     kapt(platform(project(":depconstraints")))
-    androidTestApi(platform(project(":depconstraints")))
+    androidTestApi(platform(project(":depconstraints")))*/
 
     implementation(Libs.ANDROID_MATERIAL)
 
