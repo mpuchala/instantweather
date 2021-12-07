@@ -11,5 +11,5 @@ include(
     ":app",
     ":data",
     ":model",
-    "depconstraints"
+    //"depconstraints"
 )

@@ -1,3 +1,5 @@
+import DependencyConfiguration.implementation
+
 object Versions {
     const val GRADLE = "7.0.3"
     const val KOTLIN = "1.5.31"
@@ -36,4 +38,19 @@ object Libs {
     const val ANDROIDX_ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ANDROIDX_ESPRESSO}"
     const val ANDROIDX_COMPOSE_TEST = "androidx.compose.ui:ui-test-junit4:${Versions.ANDROIDX_COMPOSE}"
     const val ANDROIDX_COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.ANDROIDX_COMPOSE}"
+}
+
+object Dependencies {
+    val ANDROIDX_COMPOSE: Map<String, Any> = mapOf(
+        implementation to Libs.ANDROIDX_COMPOSE_UI,
+        implementation to Libs.ANDROIDX_COMPOSE_UI_TOOLING_PREVIEW,
+        implementation to Libs.ANDROIDX_COMPOSE_MATERIAL,
+    )
+}
+
+object DependencyConfiguration {
+    const val implementation = "implementation"
+    const val testImplementation = "testImplementation"
+    const val androidTestImplementation = "androidTestImplementation"
+    const val debugImplementation = "debugImplementation"
 }
