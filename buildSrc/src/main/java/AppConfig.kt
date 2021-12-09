@@ -6,5 +6,12 @@ object AppConfig {
     const val versionName = "1.0.0"
 
     const val androidTestInstrumentation = "androidx.test.runner.AndroidJUnitRunner"
+}
+
+object LibraryConfig {
+    const val compileSdk = AppConfig.compileSdk
+    const val minSdk = AppConfig.minSdk
+    const val targetSdk = AppConfig.targetSdk
+
     const val proguardConsumerRules =  "consumer-rules.pro"
 }

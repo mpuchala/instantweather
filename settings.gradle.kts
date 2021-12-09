@@ -10,6 +10,5 @@ rootProject.name = "Instant Weather"
 include(
     ":app",
     ":data",
-    ":model",
-    "depconstraints"
+    ":model"
 )

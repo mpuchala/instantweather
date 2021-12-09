@@ -4,8 +4,6 @@ plugins {
 }
 
 dependencies {
-    api(platform(project(":depconstraints")))
-
     //implementation(Libs.ANDROIDX_CORE_KTX)
     implementation(Libs.KOTLIN_STDLIB)
 }
