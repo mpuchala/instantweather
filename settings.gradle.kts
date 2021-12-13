@@ -12,3 +12,12 @@ include(
     ":data",
     ":model"
 )
+
+include(
+    ":ui:common"
+)
+
+include(
+    ":features:search",
+    ":features:details-day"
+)
