@@ -1,4 +1,4 @@
-package eu.flowcode.instantweather.ui.theme
+package eu.flowcode.instantweather.uicommon.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

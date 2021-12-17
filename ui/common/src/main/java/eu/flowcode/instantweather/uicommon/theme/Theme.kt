@@ -1,4 +1,4 @@
-package eu.flowcode.instantweather.ui.theme
+package eu.flowcode.instantweather.uicommon.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
