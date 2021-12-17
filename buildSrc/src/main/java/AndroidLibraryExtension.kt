@@ -1,3 +1,8 @@
 open class AndroidLibraryExtension {
-    //TODO: Add some fields when required
+
+    companion object {
+        const val NAME = "androidLibrary"
+    }
+
+    var compose = false
 }

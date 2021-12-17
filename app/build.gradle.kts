@@ -32,8 +32,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = AppConfig.javaVersion
+        targetCompatibility = AppConfig.javaVersion
     }
 
     kotlinOptions {
@@ -57,6 +57,8 @@ dependencies {
     /*api(platform(project(":depconstraints")))
     kapt(platform(project(":depconstraints")))
     androidTestApi(platform(project(":depconstraints")))*/
+
+    implementation(project(":ui:common"))
 
     implementation(Libs.ANDROID_MATERIAL)
 

@@ -1,7 +1,7 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 object Versions {
-    const val GRADLE = "7.0.3"
+    const val GRADLE = "7.0.4"
     const val KOTLIN = "1.5.31"
 
     const val ANDROID_MATERIAL = "1.4.0"

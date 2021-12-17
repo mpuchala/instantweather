@@ -1,34 +1,37 @@
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import com.android.build.gradle.LibraryExtension
-import org.gradle.api.JavaVersion
+import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
-private const val ANDROID_LIBRARY_EXTENSION_NAME = "androidLibrary"
-
 class AndroidLibraryPlugin : Plugin<Project> {
+
+    private val Project.androidLibrary: AndroidLibraryExtension
+        get() = extensions.findByName(AndroidLibraryExtension.NAME) as? AndroidLibraryExtension
+            ?: throw(NullPointerException("${AndroidLibraryExtension.NAME} missing"))
 
     override fun apply(project: Project) {
         with(project) {
             addAndroidLibraryExtension()
-            applyPlugins()
-            androidConfig()
-            dependenciesConfig()
 
             afterEvaluate {
-                val androidLibrary =
-                    project.extensions.findByName(ANDROID_LIBRARY_EXTENSION_NAME) as? AndroidLibraryExtension
+                androidLibrary.let { androidLibrary ->
+                    android(androidLibrary)
+                    dependencies(androidLibrary)
+                }
             }
+
+            applyPlugins()
         }
     }
 }
 
 private fun Project.addAndroidLibraryExtension() {
-    extensions.create(ANDROID_LIBRARY_EXTENSION_NAME, AndroidLibraryExtension::class.java)
+    extensions.create(AndroidLibraryExtension.NAME, AndroidLibraryExtension::class.java)
 }
 
 private fun Project.applyPlugins() {
-    println("-apply plugins")
+    println("- apply plugins")
     plugins.run {
         apply("com.android.library")
         apply("kotlin-android")
@@ -36,11 +39,9 @@ private fun Project.applyPlugins() {
     }
 }
 
-private fun Project.androidConfig() {
-    println("-android config")
-    val android = extensions.getByType(LibraryExtension::class.java)
-
-    android.run {
+private fun Project.android(androidLibrary: AndroidLibraryExtension) {
+    println("- android")
+    configure<LibraryExtension> {
         compileSdk = LibraryConfig.compileSdk
 
         defaultConfig {
@@ -53,22 +54,47 @@ private fun Project.androidConfig() {
         }
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
+            sourceCompatibility = LibraryConfig.javaVersion
+            targetCompatibility = LibraryConfig.javaVersion
         }
 
-        /*kotlinOptions {
-
-        }*/
+        if (androidLibrary.compose) {
+            androidCompose(this)
+        }
     }
 }
 
-private fun Project.dependenciesConfig() {
-    println("-dependencies config")
+private fun Project.androidCompose(android: LibraryExtension) {
+    println("- android Compose")
+    android.run {
+        buildFeatures {
+            compose = true
+        }
+
+        composeOptions {
+            kotlinCompilerExtensionVersion = Versions.ANDROIDX_COMPOSE
+        }
+    }
+}
+
+private fun Project.dependencies(androidLibrary: AndroidLibraryExtension) {
+    println("- dependencies")
     dependencies {
         implementation(Libs.ANDROIDX_CORE_KTX)
 
         testImplementation(Libs.testLibraries)
         androidTestImplementation(Libs.androidTestLibraries)
+    }
+
+    if (androidLibrary.compose) {
+        dependenciesCompose()
+    }
+}
+
+private fun Project.dependenciesCompose() {
+    println("- dependencies Compose")
+    dependencies {
+        implementation(Libs.androidxCompose)
+        androidTestImplementation(Libs.androidxComposeTestLibraries)
     }
 }
